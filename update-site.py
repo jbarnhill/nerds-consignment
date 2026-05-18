@@ -74,13 +74,9 @@ def main():
         print("No content div found.")
         return
 
-    # Clear current content completely to rebuild
-    content_div.clear()
-    
-    # Add title back
-    h1 = soup.new_tag('h1')
-    h1.string = "Albany Silver"
-    content_div.append(h1)
+    # Clear existing comic content to rebuild accurately
+    for tag in content_div.find_all(['h2', 'h3', 'ul']):
+        tag.decompose()
 
     items = []
     for filename in os.listdir(SOURCE_DIR):
