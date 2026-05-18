@@ -19,8 +19,15 @@ def parse_filename(filename):
         display_text = f"Issue {issue}"
         if date:
             display_text += f" - {date}"
-        return publisher, title, display_text
-    return "Uncategorized", "Misc", name
+            
+        try:
+            sort_issue = float(issue)
+        except ValueError:
+            match = re.search(r'\d+', issue)
+            sort_issue = float(match.group()) if match else float('inf')
+            
+        return publisher, title, sort_issue, display_text
+    return "Uncategorized", "Misc", float('inf'), name
 
 def sync_to_git():
     """Stages, commits, and pushes changes to git."""
@@ -88,16 +95,17 @@ def main():
         if filename in ['.DS_Store', 'Thumbs.db'] or filename.endswith('.tmp'):
             continue
         
-        publisher, title, display_text = parse_filename(filename)
+        publisher, title, sort_issue, display_text = parse_filename(filename)
         items.append({
             'filename': filename,
             'publisher': publisher,
             'title': title,
+            'sort_issue': sort_issue,
             'display': display_text
         })
     
     # Sort items
-    items.sort(key=lambda x: (x['publisher'], x['title'], x['display']))
+    items.sort(key=lambda x: (x['publisher'], x['title'], x['sort_issue'], x['display']))
 
     # Group by publisher -> title
     grouped = {}
