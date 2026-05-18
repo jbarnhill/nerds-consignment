@@ -8,8 +8,25 @@ hr {
     border-width: 2px;
 }
 
-h1, h2 {
+h1 {
     font-family: 'Montserrat', sans-serif;
+}
+
+h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2em;
+    font-weight: 800;
+    margin-top: 1.5em;
+    padding-bottom: 0.3em;
+    border-bottom: 2px solid #557C55;
+}
+
+h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1em;
+    font-weight: 600;
+    margin-top: 1em;
+    margin-bottom: 0.5em;
 }
 
 img {
