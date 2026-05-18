@@ -33,9 +33,14 @@ def sync_to_git():
         print("\nChanges detected. Syncing to git...")
         subprocess.run(['git', 'add', '-A'], check=True)
         subprocess.run(['git', 'commit', '-m', "Auto-update: Organized items"], check=True)
-        print("Pushing to remote repository...")
-        subprocess.run(['git', 'push'], check=True)
-        print("Git sync complete.")
+        
+        user_input = input("Push to remote repository? (y/n): ").strip().lower()
+        if user_input in ['y', 'yes']:
+            print("Pushing to remote repository...")
+            subprocess.run(['git', 'push'], check=True)
+            print("Git sync complete.")
+        else:
+            print("Git push skipped by user.")
     except subprocess.CalledProcessError as e:
         print(f"Error during git sync: {e}")
     except FileNotFoundError:
