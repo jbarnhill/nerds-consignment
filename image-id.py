@@ -91,11 +91,9 @@ def generate_safe_new_name(directory: Path, data: ComicBookDetails, original_suf
     
     base_target = directory / f"{clean_name}{original_suffix}"
     
-    # Collision Prevention Loop: Handle duplicate issue naming automatically
-    counter = 2
-    while base_target.exists():
-        base_target = directory / f"{clean_name}_v{counter}{original_suffix}"
-        counter += 1
+    # Check for collision and raise an error to alert user instead of silently appending v2
+    if base_target.exists():
+        raise FileExistsError(f"Potential duplicate detected: '{base_target.name}' already exists.")
         
     return base_target
 
