@@ -70,6 +70,43 @@ def check_and_process_images():
         except subprocess.CalledProcessError as e:
             print(f"Error running update-images.py: {e}")
 
+def ensure_styles_and_scripts(soup):
+    """Ensures the necessary CSS and JS for tabs exist in the HTML."""
+    if not soup.head:
+        head = soup.new_tag('head')
+        soup.insert(0, head)
+    
+    if not soup.find('style', id='tab-styles'):
+        style_tag = soup.new_tag('style', id='tab-styles')
+        style_tag.string = """
+            .tab-nav { overflow: hidden; border-bottom: 1px solid #ccc; margin-bottom: 20px; display: flex; flex-wrap: wrap; gap: 5px; }
+            .tab-nav button { background-color: #f1f1f1; border: 1px solid #ccc; border-bottom: none; outline: none; cursor: pointer; padding: 10px 16px; transition: 0.3s; border-radius: 5px 5px 0 0; }
+            .tab-nav button:hover { background-color: #ddd; }
+            .tab-nav button.active { background-color: #fff; border-bottom: 1px solid #fff; margin-bottom: -1px; font-weight: bold; }
+            .tab-panel { animation: fadeEffect 0.5s; display: none; }
+            @keyframes fadeEffect { from {opacity: 0;} to {opacity: 1;} }
+        """
+        soup.head.append(style_tag)
+        
+    if not soup.find('script', id='tab-logic'):
+        script_tag = soup.new_tag('script', id='tab-logic')
+        script_tag.string = """
+            function openPublisher(evt, pubName) {
+                var i, tabcontent, tablinks;
+                tabcontent = document.getElementsByClassName("tab-panel");
+                for (i = 0; i < tabcontent.length; i++) { 
+                    tabcontent[i].style.display = "none"; 
+                }
+                tablinks = document.getElementsByClassName("tab-link");
+                for (i = 0; i < tablinks.length; i++) { 
+                    tablinks[i].className = tablinks[i].className.replace(" active", ""); 
+                }
+                document.getElementById(pubName).style.display = "block";
+                evt.currentTarget.className += " active";
+            }
+        """
+        soup.head.append(script_tag)
+
 def main():
     check_and_process_images()
 
@@ -81,14 +118,14 @@ def main():
     with open(INDEX_FILE, 'r', encoding='utf-8') as f:
         soup = BeautifulSoup(f, 'html.parser')
 
+    ensure_styles_and_scripts(soup)
+
     content_div = soup.find('div', class_='content')
     if not content_div:
         print("No content div found.")
         return
 
-    # Clear existing comic content to rebuild accurately
-    for tag in content_div.find_all(['h2', 'h3', 'ul']):
-        tag.decompose()
+    content_div.clear()
 
     items = []
     for filename in os.listdir(SOURCE_DIR):
@@ -118,15 +155,35 @@ def main():
             grouped[pub][tit] = []
         grouped[pub][tit].append(item)
 
-    for pub, titles in grouped.items():
-        h2 = soup.new_tag('h2')
-        h2.string = pub
-        content_div.append(h2)
+    # Create Tab Navigation and Container
+    tab_nav = soup.new_tag('div', attrs={'class': 'tab-nav'})
+    tab_container = soup.new_tag('div', attrs={'class': 'tab-container'})
+    content_div.append(tab_nav)
+    content_div.append(tab_container)
+
+    for i, (pub, titles) in enumerate(grouped.items()):
+        pub_id = re.sub(r'[^a-zA-Z0-9]', '_', pub)
+        
+        # Create Tab Link
+        btn = soup.new_tag('button', attrs={
+            'class': 'tab-link' + (' active' if i == 0 else ''),
+            'onclick': f"openPublisher(event, '{pub_id}')"
+        })
+        btn.string = pub
+        tab_nav.append(btn)
+        
+        # Create Tab Panel
+        panel = soup.new_tag('div', attrs={
+            'id': pub_id,
+            'class': 'tab-panel',
+            'style': 'display: block;' if i == 0 else ''
+        })
+        tab_container.append(panel)
 
         for tit, file_items in titles.items():
             h3 = soup.new_tag('h3')
             h3.string = tit
-            content_div.append(h3)
+            panel.append(h3)
 
             ul = soup.new_tag('ul')
             for item in file_items:
@@ -135,7 +192,7 @@ def main():
                 a.string = item['display']
                 li.append(a)
                 ul.append(li)
-            content_div.append(ul)
+            panel.append(ul)
 
     # Save changes
     with open(INDEX_FILE, 'w', encoding='utf-8') as f:

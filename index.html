@@ -8,6 +8,29 @@
   <link href="styles.css" rel="stylesheet"/>
   <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
   <link href="https://fonts.googleapis.com/css2?family=Merriweather&amp;family=Montserrat&amp;family=Sacramento&amp;display=swap" rel="stylesheet"/>
+  <style id="tab-styles">
+   .tab-nav { overflow: hidden; border-bottom: 1px solid #ccc; margin-bottom: 20px; display: flex; flex-wrap: wrap; gap: 5px; }
+            .tab-nav button { background-color: #f1f1f1; border: 1px solid #ccc; border-bottom: none; outline: none; cursor: pointer; padding: 10px 16px; transition: 0.3s; border-radius: 5px 5px 0 0; }
+            .tab-nav button:hover { background-color: #ddd; }
+            .tab-nav button.active { background-color: #fff; border-bottom: 1px solid #fff; margin-bottom: -1px; font-weight: bold; }
+            .tab-panel { animation: fadeEffect 0.5s; display: none; }
+            @keyframes fadeEffect { from {opacity: 0;} to {opacity: 1;} }
+  </style>
+  <script id="tab-logic">
+   function openPublisher(evt, pubName) {
+                var i, tabcontent, tablinks;
+                tabcontent = document.getElementsByClassName("tab-panel");
+                for (i = 0; i < tabcontent.length; i++) { 
+                    tabcontent[i].style.display = "none"; 
+                }
+                tablinks = document.getElementsByClassName("tab-link");
+                for (i = 0; i < tablinks.length; i++) { 
+                    tablinks[i].className = tablinks[i].className.replace(" active", ""); 
+                }
+                document.getElementById(pubName).style.display = "block";
+                evt.currentTarget.className += " active";
+            }
+  </script>
  </head>
  <body>
   <div class="container">
@@ -15,365 +38,382 @@
     <h1>
      Nerds Consignment
     </h1>
+    <p>
+     email
+     <a href="mailto:nerdyfeathers@gmail.com">
+      nerdyfeathers@gmail.com
+     </a>
+     for info or
+     <a href="https://www.facebook.com/justindbarnhill/" target="_blank">
+      message via Facebook
+     </a>
+    </p>
    </header>
    <div class="content">
-    <h1>
-     Albany Silver
-    </h1>
-    <h2>
-     Gold Key
-    </h2>
-    <h3>
-     Buck Rogers in the 25th Century
-    </h3>
-    <ul>
-     <li>
-      <a href="albany_silver/Gold Key - Buck Rogers in the 25th Century - 1 - 1964.jpg">
-       Issue 1 - 1964
-      </a>
-     </li>
-    </ul>
-    <h3>
-     Doctor Solar, Man of the Atom
-    </h3>
-    <ul>
-     <li>
-      <a href="albany_silver/Gold Key - Doctor Solar, Man of the Atom - 7 - 1964.jpg">
-       Issue 7 - 1964
-      </a>
-     </li>
-    </ul>
-    <h3>
-     How The West Was Won
-    </h3>
-    <ul>
-     <li>
-      <a href="albany_silver/Gold Key - How The West Was Won - 1 - 1963.jpg">
-       Issue 1 - 1963
-      </a>
-     </li>
-    </ul>
-    <h3>
-     Magnus Robot Fighter
-    </h3>
-    <ul>
-     <li>
-      <a href="albany_silver/Gold Key - Magnus Robot Fighter - 2 - 1963.jpg">
-       Issue 2 - 1963
-      </a>
-     </li>
-     <li>
-      <a href="albany_silver/Gold Key - Magnus Robot Fighter - 7 - 1964.jpg">
-       Issue 7 - 1964
-      </a>
-     </li>
-    </ul>
-    <h3>
-     Mighty Samson
-    </h3>
-    <ul>
-     <li>
-      <a href="albany_silver/Gold Key - Mighty Samson - 1 - 1964.jpg">
-       Issue 1 - 1964
-      </a>
-     </li>
-    </ul>
-    <h3>
-     Space Family Robinson
-    </h3>
-    <ul>
-     <li>
-      <a href="albany_silver/Gold Key - Space Family Robinson - 2 - 1963.jpg">
-       Issue 2 - 1963
-      </a>
-     </li>
-     <li>
-      <a href="albany_silver/Gold Key - Space Family Robinson - 3 - 1963.jpg">
-       Issue 3 - 1963
-      </a>
-     </li>
-     <li>
-      <a href="albany_silver/Gold Key - Space Family Robinson - 4 - 1963.jpg">
-       Issue 4 - 1963
-      </a>
-     </li>
-     <li>
-      <a href="albany_silver/Gold Key - Space Family Robinson - 7 - 1964.JPG">
-       Issue 7 - 1964
-      </a>
-     </li>
-     <li>
-      <a href="albany_silver/Gold Key - Space Family Robinson - 8 - 1964.jpg">
-       Issue 8 - 1964
-      </a>
-     </li>
-     <li>
-      <a href="albany_silver/Gold Key - Space Family Robinson - 9 - 1964.jpg">
-       Issue 9 - 1964
-      </a>
-     </li>
-     <li>
-      <a href="albany_silver/Gold Key - Space Family Robinson - 11 - 1964.jpg">
-       Issue 11 - 1964
-      </a>
-     </li>
-     <li>
-      <a href="albany_silver/Gold Key - Space Family Robinson - 14 - 1965.jpg">
-       Issue 14 - 1965
-      </a>
-     </li>
-    </ul>
-    <h3>
-     Tarzan
-    </h3>
-    <ul>
-     <li>
-      <a href="albany_silver/Gold Key - Tarzan - 132 - 1962.jpg">
-       Issue 132 - 1962
-      </a>
-     </li>
-     <li>
-      <a href="albany_silver/Gold Key - Tarzan - 135 - 1963.jpg">
-       Issue 135 - 1963
-      </a>
-     </li>
-     <li>
-      <a href="albany_silver/Gold Key - Tarzan - 143 - 1964.jpg">
-       Issue 143 - 1964
-      </a>
-     </li>
-     <li>
-      <a href="albany_silver/Gold Key - Tarzan - 146 - 1964.jpg">
-       Issue 146 - 1964
-      </a>
-     </li>
-     <li>
-      <a href="albany_silver/Gold Key - Tarzan - 149 - 1965.jpg">
-       Issue 149 - 1965
-      </a>
-     </li>
-    </ul>
-    <h3>
-     The Phantom
-    </h3>
-    <ul>
-     <li>
-      <a href="albany_silver/Gold Key - The Phantom - 1 - 1962.jpg">
-       Issue 1 - 1962
-      </a>
-     </li>
-     <li>
-      <a href="albany_silver/Gold Key - The Phantom - 2 - 1963.jpg">
-       Issue 2 - 1963
-      </a>
-     </li>
-     <li>
-      <a href="albany_silver/Gold Key - The Phantom - 4 - 1963.jpg">
-       Issue 4 - 1963
-      </a>
-     </li>
-     <li>
-      <a href="albany_silver/Gold Key - The Phantom - 6 - 1964.jpg">
-       Issue 6 - 1964
-      </a>
-     </li>
-     <li>
-      <a href="albany_silver/Gold Key - The Phantom - 7 - 1964.jpg">
-       Issue 7 - 1964
-      </a>
-     </li>
-     <li>
-      <a href="albany_silver/Gold Key - The Phantom - 9 - 1964.jpg">
-       Issue 9 - 1964
-      </a>
-     </li>
-     <li>
-      <a href="albany_silver/Gold Key - The Phantom - 10 - 1965.jpg">
-       Issue 10 - 1965
-      </a>
-     </li>
-     <li>
-      <a href="albany_silver/Gold Key - The Phantom - 12 - 1965.jpg">
-       Issue 12 - 1965
-      </a>
-     </li>
-    </ul>
-    <h3>
-     The Twilight Zone
-    </h3>
-    <ul>
-     <li>
-      <a href="albany_silver/Gold Key - The Twilight Zone - 7 - 1964.jpg">
-       Issue 7 - 1964
-      </a>
-     </li>
-     <li>
-      <a href="albany_silver/Gold Key - The Twilight Zone - 12 - 1965.jpg">
-       Issue 12 - 1965
-      </a>
-     </li>
-     <li>
-      <a href="albany_silver/Gold Key - The Twilight Zone - 19 - 1967.jpg">
-       Issue 19 - 1967
-      </a>
-     </li>
-    </ul>
-    <h3>
-     Turok, Son of Stone
-    </h3>
-    <ul>
-     <li>
-      <a href="albany_silver/Gold Key - Turok, Son of Stone - 31 - 1963.jpg">
-       Issue 31 - 1963
-      </a>
-     </li>
-     <li>
-      <a href="albany_silver/Gold Key - Turok, Son of Stone - 35 - 1963.jpg">
-       Issue 35 - 1963
-      </a>
-     </li>
-    </ul>
-    <h3>
-     X The Man with the X
-    </h3>
-    <ul>
-     <li>
-      <a href="albany_silver/Gold Key - X The Man with the X-Ray Eyes - 1 - 1963.jpg">
-       Issue Ray Eyes - 1
-      </a>
-     </li>
-    </ul>
-    <h2>
-     Harvey
-    </h2>
-    <h3>
-     Baby Huey and Papa
-    </h3>
-    <ul>
-     <li>
-      <a href="albany_silver/Harvey - Baby Huey and Papa - 8 - 1963.jpg">
-       Issue 8 - 1963
-      </a>
-     </li>
-    </ul>
-    <h3>
-     Baby Huey the Baby Giant
-    </h3>
-    <ul>
-     <li>
-      <a href="albany_silver/Harvey - Baby Huey the Baby Giant - 52 - 1963.jpg">
-       Issue 52 - 1963
-      </a>
-     </li>
-     <li>
-      <a href="albany_silver/Harvey - Baby Huey the Baby Giant - 61 - 1964.jpg">
-       Issue 61 - 1964
-      </a>
-     </li>
-    </ul>
-    <h3>
-     Blondie
-    </h3>
-    <ul>
-     <li>
-      <a href="albany_silver/Harvey - Blondie - 161 - 1964.jpg">
-       Issue 161 - 1964
-      </a>
-     </li>
-    </ul>
-    <h3>
-     Casper The Friendly Ghost
-    </h3>
-    <ul>
-     <li>
-      <a href="albany_silver/Harvey - Casper The Friendly Ghost - 50 - 1956.jpg">
-       Issue 50 - 1956
-      </a>
-     </li>
-    </ul>
-    <h3>
-     Harvey Hits Magazine
-    </h3>
-    <ul>
-     <li>
-      <a href="albany_silver/Harvey - Harvey Hits Magazine - 68 - 1963.jpg">
-       Issue 68 - 1963
-      </a>
-     </li>
-     <li>
-      <a href="albany_silver/Harvey - Harvey Hits Magazine - 70 - 1963.jpg">
-       Issue 70 - 1963
-      </a>
-     </li>
-    </ul>
-    <h3>
-     Little Audrey and Melvin
-    </h3>
-    <ul>
-     <li>
-      <a href="albany_silver/Harvey - Little Audrey and Melvin - 8 - 1963.jpg">
-       Issue 8 - 1963
-      </a>
-     </li>
-    </ul>
-    <h3>
-     Sad Sack
-    </h3>
-    <ul>
-     <li>
-      <a href="albany_silver/Harvey - Sad Sack - 155 - 1964.jpg">
-       Issue 155 - 1964
-      </a>
-     </li>
-    </ul>
-    <h3>
-     Sad Sack and the Sarge
-    </h3>
-    <ul>
-     <li>
-      <a href="albany_silver/Harvey - Sad Sack and the Sarge - 38 - 1963.jpg">
-       Issue 38 - 1963
-      </a>
-     </li>
-    </ul>
-    <h3>
-     Unearthly Spectaculars
-    </h3>
-    <ul>
-     <li>
-      <a href="albany_silver/Harvey - Unearthly Spectaculars - 1 - 1965.jpg">
-       Issue 1 - 1965
-      </a>
-     </li>
-    </ul>
-    <h3>
-     Wendy The Good Little Witch
-    </h3>
-    <ul>
-     <li>
-      <a href="albany_silver/Harvey - Wendy The Good Little Witch - 15 - 1962.jpg">
-       Issue 15 - 1962
-      </a>
-     </li>
-     <li>
-      <a href="albany_silver/Harvey - Wendy The Good Little Witch - 18 - 1963.jpg">
-       Issue 18 - 1963
-      </a>
-     </li>
-    </ul>
-    <h2>
-     Prize Group
-    </h2>
-    <h3>
-     Black Magic
-    </h3>
-    <ul>
-     <li>
-      <a href="albany_silver/Prize Group - Black Magic - 37 - 1958.jpg">
-       Issue 37 - 1958
-      </a>
-     </li>
-    </ul>
+    <div class="tab-nav">
+     <button class="tab-link active" onclick="openPublisher(event, 'Gold_Key')">
+      Gold Key
+     </button>
+     <button class="tab-link" onclick="openPublisher(event, 'Harvey')">
+      Harvey
+     </button>
+     <button class="tab-link" onclick="openPublisher(event, 'Prize_Group')">
+      Prize Group
+     </button>
+    </div>
+    <div class="tab-container">
+     <div class="tab-panel" id="Gold_Key" style="display: block;">
+      <h3>
+       Buck Rogers in the 25th Century
+      </h3>
+      <ul>
+       <li>
+        <a href="albany_silver/Gold Key - Buck Rogers in the 25th Century - 1 - 1964.jpg">
+         Issue 1 - 1964
+        </a>
+       </li>
+      </ul>
+      <h3>
+       Doctor Solar, Man of the Atom
+      </h3>
+      <ul>
+       <li>
+        <a href="albany_silver/Gold Key - Doctor Solar, Man of the Atom - 7 - 1964.jpg">
+         Issue 7 - 1964
+        </a>
+       </li>
+      </ul>
+      <h3>
+       How The West Was Won
+      </h3>
+      <ul>
+       <li>
+        <a href="albany_silver/Gold Key - How The West Was Won - 1 - 1963.jpg">
+         Issue 1 - 1963
+        </a>
+       </li>
+      </ul>
+      <h3>
+       Magnus Robot Fighter
+      </h3>
+      <ul>
+       <li>
+        <a href="albany_silver/Gold Key - Magnus Robot Fighter - 2 - 1963.jpg">
+         Issue 2 - 1963
+        </a>
+       </li>
+       <li>
+        <a href="albany_silver/Gold Key - Magnus Robot Fighter - 7 - 1964.jpg">
+         Issue 7 - 1964
+        </a>
+       </li>
+      </ul>
+      <h3>
+       Mighty Samson
+      </h3>
+      <ul>
+       <li>
+        <a href="albany_silver/Gold Key - Mighty Samson - 1 - 1964.jpg">
+         Issue 1 - 1964
+        </a>
+       </li>
+      </ul>
+      <h3>
+       Space Family Robinson
+      </h3>
+      <ul>
+       <li>
+        <a href="albany_silver/Gold Key - Space Family Robinson - 2 - 1963.jpg">
+         Issue 2 - 1963
+        </a>
+       </li>
+       <li>
+        <a href="albany_silver/Gold Key - Space Family Robinson - 3 - 1963.jpg">
+         Issue 3 - 1963
+        </a>
+       </li>
+       <li>
+        <a href="albany_silver/Gold Key - Space Family Robinson - 4 - 1963.jpg">
+         Issue 4 - 1963
+        </a>
+       </li>
+       <li>
+        <a href="albany_silver/Gold Key - Space Family Robinson - 7 - 1964.JPG">
+         Issue 7 - 1964
+        </a>
+       </li>
+       <li>
+        <a href="albany_silver/Gold Key - Space Family Robinson - 8 - 1964.jpg">
+         Issue 8 - 1964
+        </a>
+       </li>
+       <li>
+        <a href="albany_silver/Gold Key - Space Family Robinson - 9 - 1964.jpg">
+         Issue 9 - 1964
+        </a>
+       </li>
+       <li>
+        <a href="albany_silver/Gold Key - Space Family Robinson - 11 - 1964.jpg">
+         Issue 11 - 1964
+        </a>
+       </li>
+       <li>
+        <a href="albany_silver/Gold Key - Space Family Robinson - 14 - 1965.jpg">
+         Issue 14 - 1965
+        </a>
+       </li>
+      </ul>
+      <h3>
+       Tarzan
+      </h3>
+      <ul>
+       <li>
+        <a href="albany_silver/Gold Key - Tarzan - 132 - 1962.jpg">
+         Issue 132 - 1962
+        </a>
+       </li>
+       <li>
+        <a href="albany_silver/Gold Key - Tarzan - 135 - 1963.jpg">
+         Issue 135 - 1963
+        </a>
+       </li>
+       <li>
+        <a href="albany_silver/Gold Key - Tarzan - 143 - 1964.jpg">
+         Issue 143 - 1964
+        </a>
+       </li>
+       <li>
+        <a href="albany_silver/Gold Key - Tarzan - 146 - 1964.jpg">
+         Issue 146 - 1964
+        </a>
+       </li>
+       <li>
+        <a href="albany_silver/Gold Key - Tarzan - 149 - 1965.jpg">
+         Issue 149 - 1965
+        </a>
+       </li>
+      </ul>
+      <h3>
+       The Phantom
+      </h3>
+      <ul>
+       <li>
+        <a href="albany_silver/Gold Key - The Phantom - 1 - 1962.jpg">
+         Issue 1 - 1962
+        </a>
+       </li>
+       <li>
+        <a href="albany_silver/Gold Key - The Phantom - 2 - 1963.jpg">
+         Issue 2 - 1963
+        </a>
+       </li>
+       <li>
+        <a href="albany_silver/Gold Key - The Phantom - 4 - 1963.jpg">
+         Issue 4 - 1963
+        </a>
+       </li>
+       <li>
+        <a href="albany_silver/Gold Key - The Phantom - 6 - 1964.jpg">
+         Issue 6 - 1964
+        </a>
+       </li>
+       <li>
+        <a href="albany_silver/Gold Key - The Phantom - 7 - 1964.jpg">
+         Issue 7 - 1964
+        </a>
+       </li>
+       <li>
+        <a href="albany_silver/Gold Key - The Phantom - 9 - 1964.jpg">
+         Issue 9 - 1964
+        </a>
+       </li>
+       <li>
+        <a href="albany_silver/Gold Key - The Phantom - 10 - 1965.jpg">
+         Issue 10 - 1965
+        </a>
+       </li>
+       <li>
+        <a href="albany_silver/Gold Key - The Phantom - 12 - 1965.jpg">
+         Issue 12 - 1965
+        </a>
+       </li>
+      </ul>
+      <h3>
+       The Twilight Zone
+      </h3>
+      <ul>
+       <li>
+        <a href="albany_silver/Gold Key - The Twilight Zone - 7 - 1964.jpg">
+         Issue 7 - 1964
+        </a>
+       </li>
+       <li>
+        <a href="albany_silver/Gold Key - The Twilight Zone - 12 - 1965.jpg">
+         Issue 12 - 1965
+        </a>
+       </li>
+       <li>
+        <a href="albany_silver/Gold Key - The Twilight Zone - 19 - 1967.jpg">
+         Issue 19 - 1967
+        </a>
+       </li>
+      </ul>
+      <h3>
+       Turok, Son of Stone
+      </h3>
+      <ul>
+       <li>
+        <a href="albany_silver/Gold Key - Turok, Son of Stone - 31 - 1963.jpg">
+         Issue 31 - 1963
+        </a>
+       </li>
+       <li>
+        <a href="albany_silver/Gold Key - Turok, Son of Stone - 35 - 1963.jpg">
+         Issue 35 - 1963
+        </a>
+       </li>
+      </ul>
+      <h3>
+       X The Man with the X
+      </h3>
+      <ul>
+       <li>
+        <a href="albany_silver/Gold Key - X The Man with the X-Ray Eyes - 1 - 1963.jpg">
+         Issue Ray Eyes - 1
+        </a>
+       </li>
+      </ul>
+     </div>
+     <div class="tab-panel" id="Harvey" style="">
+      <h3>
+       Baby Huey and Papa
+      </h3>
+      <ul>
+       <li>
+        <a href="albany_silver/Harvey - Baby Huey and Papa - 8 - 1963.jpg">
+         Issue 8 - 1963
+        </a>
+       </li>
+      </ul>
+      <h3>
+       Baby Huey the Baby Giant
+      </h3>
+      <ul>
+       <li>
+        <a href="albany_silver/Harvey - Baby Huey the Baby Giant - 52 - 1963.jpg">
+         Issue 52 - 1963
+        </a>
+       </li>
+       <li>
+        <a href="albany_silver/Harvey - Baby Huey the Baby Giant - 61 - 1964.jpg">
+         Issue 61 - 1964
+        </a>
+       </li>
+      </ul>
+      <h3>
+       Blondie
+      </h3>
+      <ul>
+       <li>
+        <a href="albany_silver/Harvey - Blondie - 161 - 1964.jpg">
+         Issue 161 - 1964
+        </a>
+       </li>
+      </ul>
+      <h3>
+       Casper The Friendly Ghost
+      </h3>
+      <ul>
+       <li>
+        <a href="albany_silver/Harvey - Casper The Friendly Ghost - 50 - 1956.jpg">
+         Issue 50 - 1956
+        </a>
+       </li>
+      </ul>
+      <h3>
+       Harvey Hits Magazine
+      </h3>
+      <ul>
+       <li>
+        <a href="albany_silver/Harvey - Harvey Hits Magazine - 68 - 1963.jpg">
+         Issue 68 - 1963
+        </a>
+       </li>
+       <li>
+        <a href="albany_silver/Harvey - Harvey Hits Magazine - 70 - 1963.jpg">
+         Issue 70 - 1963
+        </a>
+       </li>
+      </ul>
+      <h3>
+       Little Audrey and Melvin
+      </h3>
+      <ul>
+       <li>
+        <a href="albany_silver/Harvey - Little Audrey and Melvin - 8 - 1963.jpg">
+         Issue 8 - 1963
+        </a>
+       </li>
+      </ul>
+      <h3>
+       Sad Sack
+      </h3>
+      <ul>
+       <li>
+        <a href="albany_silver/Harvey - Sad Sack - 155 - 1964.jpg">
+         Issue 155 - 1964
+        </a>
+       </li>
+      </ul>
+      <h3>
+       Sad Sack and the Sarge
+      </h3>
+      <ul>
+       <li>
+        <a href="albany_silver/Harvey - Sad Sack and the Sarge - 38 - 1963.jpg">
+         Issue 38 - 1963
+        </a>
+       </li>
+      </ul>
+      <h3>
+       Unearthly Spectaculars
+      </h3>
+      <ul>
+       <li>
+        <a href="albany_silver/Harvey - Unearthly Spectaculars - 1 - 1965.jpg">
+         Issue 1 - 1965
+        </a>
+       </li>
+      </ul>
+      <h3>
+       Wendy The Good Little Witch
+      </h3>
+      <ul>
+       <li>
+        <a href="albany_silver/Harvey - Wendy The Good Little Witch - 15 - 1962.jpg">
+         Issue 15 - 1962
+        </a>
+       </li>
+       <li>
+        <a href="albany_silver/Harvey - Wendy The Good Little Witch - 18 - 1963.jpg">
+         Issue 18 - 1963
+        </a>
+       </li>
+      </ul>
+     </div>
+     <div class="tab-panel" id="Prize_Group" style="">
+      <h3>
+       Black Magic
+      </h3>
+      <ul>
+       <li>
+        <a href="albany_silver/Prize Group - Black Magic - 37 - 1958.jpg">
+         Issue 37 - 1958
+        </a>
+       </li>
+      </ul>
+     </div>
+    </div>
    </div>
    <footer>
     <p>

@@ -71,3 +71,47 @@ footer {
     height: auto;
     margin: 10px auto 30px auto;
 }
+
+/* Style the tab */
+.tabs {
+  overflow: hidden;
+  border: 1px solid #A6CF98;
+  background-color: white;
+  margin-top: 1.5em;
+}
+
+/* Style the buttons inside the tab */
+.tabs button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 1.1em;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  color: #557C55;
+}
+
+/* Change background color of buttons on hover */
+.tabs button:hover {
+  background-color: #e8f4e5;
+}
+
+/* Create an active/current tablink class */
+.tabs button.active {
+  background-color: #557C55;
+  color: white;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 1em;
+  border: 1px solid #A6CF98;
+  border-top: none;
+  background-color: white;
+}
+
