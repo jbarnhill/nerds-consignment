@@ -141,6 +141,13 @@ def main():
     with open(INDEX_FILE, 'r', encoding='utf-8') as f:
         soup = BeautifulSoup(f, 'html.parser')
 
+    if soup.title:
+        soup.title.string = "Nerds of a Feather Preview"
+    
+    header_h1 = soup.find('h1')
+    if header_h1:
+        header_h1.string = "Nerds of a Feather Preview"
+
     ensure_styles_and_scripts(soup)
 
     content_div = soup.find('div', class_='content')

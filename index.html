@@ -3,9 +3,24 @@
  <head>
   <meta charset="utf-8"/>
   <title>
-   Nerds Consignment
+   Nerds of a Feather Preview
   </title>
   <link href="styles.css" rel="stylesheet"/>
+  <script id="tab-logic">
+   function openPublisher(evt, pubName) {
+                var i, tabcontent, tablinks;
+                tabcontent = document.getElementsByClassName("tab-panel");
+                for (i = 0; i < tabcontent.length; i++) { 
+                    tabcontent[i].style.display = "none"; 
+                }
+                tablinks = document.getElementsByClassName("tab-link");
+                for (i = 0; i < tablinks.length; i++) { 
+                    tablinks[i].className = tablinks[i].className.replace(" active", ""); 
+                }
+                document.getElementById(pubName).style.display = "block";
+                evt.currentTarget.className += " active";
+            }
+  </script>
   <style id="modern-styles">
    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
             :root {
@@ -33,27 +48,12 @@
             header { text-align: center; margin-bottom: 40px; }
             footer { text-align: center; margin-top: 60px; padding: 20px; border-top: 1px solid var(--border-accent); }
   </style>
-  <script id="tab-logic">
-   function openPublisher(evt, pubName) {
-                var i, tabcontent, tablinks;
-                tabcontent = document.getElementsByClassName("tab-panel");
-                for (i = 0; i < tabcontent.length; i++) { 
-                    tabcontent[i].style.display = "none"; 
-                }
-                tablinks = document.getElementsByClassName("tab-link");
-                for (i = 0; i < tablinks.length; i++) { 
-                    tablinks[i].className = tablinks[i].className.replace(" active", ""); 
-                }
-                document.getElementById(pubName).style.display = "block";
-                evt.currentTarget.className += " active";
-            }
-  </script>
  </head>
  <body>
   <div class="container">
    <header>
     <h1>
-     Nerds Consignment
+     Nerds of a Feather Preview
     </h1>
     <p>
      email
@@ -68,8 +68,17 @@
    </header>
    <div class="content">
     <div class="tab-nav">
-     <button class="tab-link active" onclick="openPublisher(event, 'Archie_Comics')">
+     <button class="tab-link active" onclick="openPublisher(event, 'ACG')">
+      ACG
+     </button>
+     <button class="tab-link" onclick="openPublisher(event, 'Archie_Comics')">
       Archie Comics
+     </button>
+     <button class="tab-link" onclick="openPublisher(event, 'Charlton')">
+      Charlton
+     </button>
+     <button class="tab-link" onclick="openPublisher(event, 'Dell')">
+      Dell
      </button>
      <button class="tab-link" onclick="openPublisher(event, 'Gilberton_Company')">
       Gilberton Company
@@ -85,7 +94,84 @@
      </button>
     </div>
     <div class="tab-container">
-     <div class="tab-panel" id="Archie_Comics" style="display: block;">
+     <div class="tab-panel" id="ACG" style="display: block;">
+      <h3>
+       Adventures Into The Unknown
+      </h3>
+      <ul>
+       <li>
+        <a href="albany_silver/ACG - Adventures Into The Unknown - 141 - 1963.JPG">
+         Issue 141 - 1963
+        </a>
+       </li>
+      </ul>
+      <h3>
+       Forbidden Worlds
+      </h3>
+      <ul>
+       <li>
+        <a href="albany_silver/ACG - Forbidden Worlds - 106 - 1962.JPG">
+         Issue 106 - 1962
+        </a>
+       </li>
+       <li>
+        <a href="albany_silver/ACG - Forbidden Worlds - 109 - 1963.JPG">
+         Issue 109 - 1963
+        </a>
+       </li>
+       <li>
+        <a href="albany_silver/ACG - Forbidden Worlds - 120 - 1964.JPG">
+         Issue 120 - 1964
+        </a>
+       </li>
+      </ul>
+      <h3>
+       Herbie
+      </h3>
+      <ul>
+       <li>
+        <a href="albany_silver/ACG - Herbie - 3 - 1964.JPG">
+         Issue 3 - 1964
+        </a>
+       </li>
+       <li>
+        <a href="albany_silver/ACG - Herbie - 4 - 1964.JPG">
+         Issue 4 - 1964
+        </a>
+       </li>
+      </ul>
+      <h3>
+       Unknown Worlds
+      </h3>
+      <ul>
+       <li>
+        <a href="albany_silver/ACG - Unknown Worlds - 24 - 1963.JPG">
+         Issue 24 - 1963
+        </a>
+       </li>
+       <li>
+        <a href="albany_silver/ACG - Unknown Worlds - 25 - 1963.JPG">
+         Issue 25 - 1963
+        </a>
+       </li>
+       <li>
+        <a href="albany_silver/ACG - Unknown Worlds - 33 - 1964.JPG">
+         Issue 33 - 1964
+        </a>
+       </li>
+       <li>
+        <a href="albany_silver/ACG - Unknown Worlds - 36 - 1964.JPG">
+         Issue 36 - 1964
+        </a>
+       </li>
+       <li>
+        <a href="albany_silver/ACG - Unknown Worlds - 46 - 1966.JPG">
+         Issue 46 - 1966
+        </a>
+       </li>
+      </ul>
+     </div>
+     <div class="tab-panel" id="Archie_Comics" style="">
       <h3>
        Adventures of The Fly
       </h3>
@@ -133,6 +219,360 @@
        <li>
         <a href="albany_silver/Archie Comics - The Shadow - 1 - 1964.jpg">
          Issue 1 - 1964
+        </a>
+       </li>
+      </ul>
+     </div>
+     <div class="tab-panel" id="Charlton" style="">
+      <h3>
+       Fightin' Marines
+      </h3>
+      <ul>
+       <li>
+        <a href="albany_silver/Charlton - Fightin' Marines - 63 - 1965.JPG">
+         Issue 63 - 1965
+        </a>
+       </li>
+      </ul>
+      <h3>
+       Gorgo
+      </h3>
+      <ul>
+       <li>
+        <a href="albany_silver/Charlton - Gorgo - 12 - 1963.JPG">
+         Issue 12 - 1963
+        </a>
+       </li>
+       <li>
+        <a href="albany_silver/Charlton - Gorgo - 13 - 1963.JPG">
+         Issue 13 - 1963
+        </a>
+       </li>
+       <li>
+        <a href="albany_silver/Charlton - Gorgo - 14 - 1963.JPG">
+         Issue 14 - 1963
+        </a>
+       </li>
+       <li>
+        <a href="albany_silver/Charlton - Gorgo - 15 - 1963.JPG">
+         Issue 15 - 1963
+        </a>
+       </li>
+       <li>
+        <a href="albany_silver/Charlton - Gorgo - 19 - 1964.JPG">
+         Issue 19 - 1964
+        </a>
+       </li>
+      </ul>
+      <h3>
+       Konga
+      </h3>
+      <ul>
+       <li>
+        <a href="albany_silver/Charlton - Konga - 13 - 1963.JPG">
+         Issue 13 - 1963
+        </a>
+       </li>
+       <li>
+        <a href="albany_silver/Charlton - Konga - 18 - 1964.JPG">
+         Issue 18 - 1964
+        </a>
+       </li>
+      </ul>
+      <h3>
+       Konga's Revenge
+      </h3>
+      <ul>
+       <li>
+        <a href="albany_silver/Charlton - Konga's Revenge - 2 - 1963.JPG">
+         Issue 2 - 1963
+        </a>
+       </li>
+      </ul>
+      <h3>
+       Mysteries of Unexplored Worlds
+      </h3>
+      <ul>
+       <li>
+        <a href="albany_silver/Charlton - Mysteries of Unexplored Worlds - 40 - 1964.JPG">
+         Issue 40 - 1964
+        </a>
+       </li>
+      </ul>
+      <h3>
+       Reptisaurus Special Edition
+      </h3>
+      <ul>
+       <li>
+        <a href="albany_silver/Charlton - Reptisaurus Special Edition - 1 - 1963.JPG">
+         Issue 1 - 1963
+        </a>
+       </li>
+      </ul>
+      <h3>
+       Strange Suspense Stories
+      </h3>
+      <ul>
+       <li>
+        <a href="albany_silver/Charlton - Strange Suspense Stories - 71 - 1964.JPG">
+         Issue 71 - 1964
+        </a>
+       </li>
+      </ul>
+      <h3>
+       Unusual Tales
+      </h3>
+      <ul>
+       <li>
+        <a href="albany_silver/Charlton - Unusual Tales - 39 - 1963.JPG">
+         Issue 39 - 1963
+        </a>
+       </li>
+      </ul>
+     </div>
+     <div class="tab-panel" id="Dell" style="">
+      <h3>
+       Bugs Bunny
+      </h3>
+      <ul>
+       <li>
+        <a href="albany_silver/Dell - Bugs Bunny - 43 - 1955.JPG">
+         Issue 43 - 1955
+        </a>
+       </li>
+       <li>
+        <a href="albany_silver/Dell - Bugs Bunny - 59 - 1958.JPG">
+         Issue 59 - 1958
+        </a>
+       </li>
+       <li>
+        <a href="albany_silver/Dell - Bugs Bunny - 74 - 1960.JPG">
+         Issue 74 - 1960
+        </a>
+       </li>
+      </ul>
+      <h3>
+       Daffy
+      </h3>
+      <ul>
+       <li>
+        <a href="albany_silver/Dell - Daffy - 9 - 1957.JPG">
+         Issue 9 - 1957
+        </a>
+       </li>
+      </ul>
+      <h3>
+       Dell Junior Treasury
+      </h3>
+      <ul>
+       <li>
+        <a href="albany_silver/Dell - Dell Junior Treasury - 5 - 1965.JPG">
+         Issue 5 - 1965
+        </a>
+       </li>
+      </ul>
+      <h3>
+       Donald Duck
+      </h3>
+      <ul>
+       <li>
+        <a href="albany_silver/Dell - Donald Duck - 44 - 1955.JPG">
+         Issue 44 - 1955
+        </a>
+       </li>
+      </ul>
+      <h3>
+       Four Color
+      </h3>
+      <ul>
+       <li>
+        <a href="albany_silver/Dell - Four Color - 614 - 1955.JPG">
+         Issue 614 - 1955
+        </a>
+       </li>
+       <li>
+        <a href="albany_silver/Dell - Four Color - 740 - 1956.JPG">
+         Issue 740 - 1956
+        </a>
+       </li>
+       <li>
+        <a href="albany_silver/Dell - Four Color - 813 - 1957.JPG">
+         Issue 813 - 1957
+        </a>
+       </li>
+       <li>
+        <a href="albany_silver/Dell - Four Color - 934 - 1958.JPG">
+         Issue 934 - 1958
+        </a>
+       </li>
+      </ul>
+      <h3>
+       Ghost Stories
+      </h3>
+      <ul>
+       <li>
+        <a href="albany_silver/Dell - Ghost Stories - 9 - 1965.JPG">
+         Issue 9 - 1965
+        </a>
+       </li>
+       <li>
+        <a href="albany_silver/Dell - Ghost Stories - 10 - 1965.JPG">
+         Issue 10 - 1965
+        </a>
+       </li>
+       <li>
+        <a href="albany_silver/Dell - Ghost Stories - 24 - 1970.JPG">
+         Issue 24 - 1970
+        </a>
+       </li>
+      </ul>
+      <h3>
+       Jason and the Argonauts
+      </h3>
+      <ul>
+       <li>
+        <a href="albany_silver/Dell - Jason and the Argonauts - 1 - 1963.JPG">
+         Issue 1 - 1963
+        </a>
+       </li>
+      </ul>
+      <h3>
+       Jungle War Stories
+      </h3>
+      <ul>
+       <li>
+        <a href="albany_silver/Dell - Jungle War Stories - 2 - 1963.JPG">
+         Issue 2 - 1963
+        </a>
+       </li>
+      </ul>
+      <h3>
+       Kona
+      </h3>
+      <ul>
+       <li>
+        <a href="albany_silver/Dell - Kona - 7 - 1963.JPG">
+         Issue 7 - 1963
+        </a>
+       </li>
+      </ul>
+      <h3>
+       Laurel and Hardy
+      </h3>
+      <ul>
+       <li>
+        <a href="albany_silver/Dell - Laurel and Hardy - 3 - 1963.JPG">
+         Issue 3 - 1963
+        </a>
+       </li>
+      </ul>
+      <h3>
+       Little Iodine
+      </h3>
+      <ul>
+       <li>
+        <a href="albany_silver/Dell - Little Iodine - 45 - 1959.JPG">
+         Issue 45 - 1959
+        </a>
+       </li>
+      </ul>
+      <h3>
+       Mickey Mouse
+      </h3>
+      <ul>
+       <li>
+        <a href="albany_silver/Dell - Mickey Mouse - 75 - 1960.JPG">
+         Issue 75 - 1960
+        </a>
+       </li>
+      </ul>
+      <h3>
+       Nancy
+      </h3>
+      <ul>
+       <li>
+        <a href="albany_silver/Dell - Nancy - 157 - 1958.JPG">
+         Issue 157 - 1958
+        </a>
+       </li>
+      </ul>
+      <h3>
+       Naza
+      </h3>
+      <ul>
+       <li>
+        <a href="albany_silver/Dell - Naza - 1 - 1964.JPG">
+         Issue 1 - 1964
+        </a>
+       </li>
+      </ul>
+      <h3>
+       The Great Race
+      </h3>
+      <ul>
+       <li>
+        <a href="albany_silver/Dell - The Great Race - 1 - 1966.JPG">
+         Issue 1 - 1966
+        </a>
+       </li>
+      </ul>
+      <h3>
+       The Masque of the Red Death
+      </h3>
+      <ul>
+       <li>
+        <a href="albany_silver/Dell - The Masque of the Red Death - 1 - 1964.JPG">
+         Issue 1 - 1964
+        </a>
+       </li>
+      </ul>
+      <h3>
+       The Outer Limits
+      </h3>
+      <ul>
+       <li>
+        <a href="albany_silver/Dell - The Outer Limits - 4 - 1964.JPG">
+         Issue 4 - 1964
+        </a>
+       </li>
+       <li>
+        <a href="albany_silver/Dell - The Outer Limits - 5 - 1965.JPG">
+         Issue 5 - 1965
+        </a>
+       </li>
+      </ul>
+      <h3>
+       The Raven
+      </h3>
+      <ul>
+       <li>
+        <a href="albany_silver/Dell - The Raven - 1 - 1963.JPG">
+         Issue 1 - 1963
+        </a>
+       </li>
+      </ul>
+      <h3>
+       Uncle Scrooge
+      </h3>
+      <ul>
+       <li>
+        <a href="albany_silver/Dell - Uncle Scrooge - 11 - 1955.JPG">
+         Issue 11 - 1955
+        </a>
+       </li>
+       <li>
+        <a href="albany_silver/Dell - Uncle Scrooge - 20 - 1957.JPG">
+         Issue 20 - 1957
+        </a>
+       </li>
+      </ul>
+      <h3>
+       Walt Disney's Comics and Stories
+      </h3>
+      <ul>
+       <li>
+        <a href="albany_silver/Dell - Walt Disney's Comics and Stories - 244 - 1961.JPG">
+         Issue 244 - 1961
         </a>
        </li>
       </ul>

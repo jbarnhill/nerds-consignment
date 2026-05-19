@@ -80,14 +80,13 @@ def analyze_comic_cover(client: genai.Client, image_path: Path) -> ComicBookDeta
 def generate_safe_new_name(directory: Path, data: ComicBookDetails, original_suffix: str) -> Path:
     """
     Creates a clean, file-system safe name string based on metadata:
-    Format: publisher-title-issue-publish_year.jpg
+    Format: Publisher - Title - Issue - Date.ext
     """
-    # Combine the string fields using simple hyphens
-    raw_name = f"{data.publisher}-{data.title}-{data.issue_number}-{data.publish_year}"
+    # Combine the string fields using spaced hyphens
+    raw_name = f"{data.publisher} - {data.title} - {data.issue_number} - {data.publish_year}"
     
-    # Replace spaces with underscores or clean dashes, and drop illegal punctuation
-    clean_name = raw_name.replace(" ", "_")
-    clean_name = re.sub(r'[\\/*?:"<>|]', "", clean_name) # Strip out OS reserved tokens
+    # Drop illegal punctuation
+    clean_name = re.sub(r'[\\/*?:"<>|]', "", raw_name) # Strip out OS reserved tokens
     
     base_target = directory / f"{clean_name}{original_suffix}"
     
@@ -127,8 +126,8 @@ def run_inventory_pipeline(input_directory: str, output_csv_path: str):
     def is_already_processed(filename: str) -> bool:
         if filename in processed_files:
             return True
-        # Heuristic: Processed files have no spaces and at least 3 hyphens (e.g. publisher-title-issue-year)
-        if " " not in filename and filename.count("-") >= 3:
+        # Heuristic: Processed files follow "Publisher - Title - Issue - Year" format
+        if filename.count(" - ") >= 2:
             return True
         return False
     
