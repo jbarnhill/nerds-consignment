@@ -77,7 +77,7 @@ def ensure_styles_and_scripts(soup):
         soup.insert(0, head)
     
     # Remove old styles if they exist
-    for old_style in soup.find_all('style', id=re.compile(r'tab-styles|main-styles')):
+    for old_style in soup.find_all('style', id=re.compile(r'tab-styles|main-styles|modern-styles')):
         old_style.decompose()
 
     if not soup.find('style', id='modern-styles'):
@@ -85,9 +85,9 @@ def ensure_styles_and_scripts(soup):
         style_tag.string = """
             @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
             :root {
-                --bg-main: #0B131A; --bg-surface: #152535; --border-accent: #243E56;
-                --text-primary: #FFFFFF; --text-secondary: #90A4AE; --accent-glow: #00E5FF;
-                --accent-alert: #FF3D00;
+                --bg-main: #F8FAFC; --bg-surface: #FFFFFF; --border-accent: #CBD5E1;
+                --text-primary: #0F172A; --text-secondary: #475569; --accent-glow: #0284C7;
+                --accent-alert: #DC2626;
             }
             body { background-color: var(--bg-main); color: var(--text-primary); font-family: 'Inter', sans-serif; line-height: 1.6; margin: 0; padding: 24px; }
             h1, h2, h3 { font-weight: 700; letter-spacing: -0.02em; color: var(--text-primary); margin-top: 0; }
@@ -95,13 +95,13 @@ def ensure_styles_and_scripts(soup):
             h2 { font-size: 1.5rem; margin-bottom: 16px; border-bottom: 2px solid var(--border-accent); padding-bottom: 8px; }
             p, span { color: var(--text-secondary); font-size: 0.95rem; }
             a { color: var(--accent-glow); text-decoration: none; transition: color 0.2s ease; }
-            a:hover { color: #80F4FF; }
+            a:hover { color: #0369A1; }
             .container { max-width: 1100px; margin: 0 auto; background-color: var(--bg-surface); border: 1px solid var(--border-accent); border-radius: 12px; padding: 24px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); }
             ul { list-style: none; padding-left: 0; margin: 0; }
-            li { background-color: rgba(255, 255, 255, 0.02); border: 1px solid var(--border-accent); border-radius: 8px; padding: 16px; margin-bottom: 12px; transition: transform 0.2s ease, background-color 0.2s ease; }
-            li:hover { transform: scale(1.01); background-color: rgba(255, 255, 255, 0.05); border-color: var(--accent-glow); }
+            li { background-color: #F1F5F9; border: 1px solid var(--border-accent); border-radius: 8px; padding: 16px; margin-bottom: 12px; transition: transform 0.2s ease, background-color 0.2s ease; }
+            li:hover { transform: scale(1.01); background-color: #E2E8F0; border-color: var(--accent-glow); }
             .tab-nav { overflow: hidden; margin-bottom: 24px; display: flex; flex-wrap: wrap; gap: 8px; border-bottom: 1px solid var(--border-accent); padding-bottom: 16px; }
-            .tab-nav button { background-color: var(--bg-main); color: var(--text-secondary); border: 1px solid var(--border-accent); cursor: pointer; padding: 10px 20px; transition: 0.3s; border-radius: 8px; font-weight: 500; }
+            .tab-nav button { background-color: #F1F5F9; color: var(--text-secondary); border: 1px solid var(--border-accent); cursor: pointer; padding: 10px 20px; transition: 0.3s; border-radius: 8px; font-weight: 500; }
             .tab-nav button:hover { background-color: var(--border-accent); color: var(--text-primary); }
             .tab-nav button.active { background-color: var(--accent-glow); color: var(--bg-main); border-color: var(--accent-glow); font-weight: 700; }
             .tab-panel { animation: fadeEffect 0.5s; display: none; }
