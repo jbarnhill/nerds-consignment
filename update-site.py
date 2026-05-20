@@ -142,11 +142,16 @@ def main():
         soup = BeautifulSoup(f, 'html.parser')
 
     if soup.title:
-        soup.title.string = "Nerds of a Feather Preview"
-    
+        soup.title.string = "Comic Auction Preview"
+
     header_h1 = soup.find('h1')
     if header_h1:
-        header_h1.string = "Nerds of a Feather Preview"
+        header_h1.string = "Comic Auction Preview"
+
+    for a_tag in soup.find_all('a'):
+        if a_tag.get('href', '').startswith('mailto:'):
+            a_tag['href'] = 'mailto:justindbarnhill@gmail.com,nerdyfeathers@gmail.com'
+            a_tag.string = 'justindbarnhill@gmail.com or nerdyfeathers@gmail.com'
 
     ensure_styles_and_scripts(soup)
 
