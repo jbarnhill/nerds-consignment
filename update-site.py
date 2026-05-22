@@ -130,6 +130,18 @@ def ensure_styles_and_scripts(soup):
         """
         soup.head.append(script_tag)
 
+def ensure_page_counter(soup):
+    """Ensures a page counter exists in the footer."""
+    footer = soup.find('footer')
+    if footer:
+        counter_img = footer.find('img', id='page-counter')
+        if not counter_img:
+            counter_img = soup.new_tag('img', id='page-counter')
+            counter_img['src'] = 'https://profile-counter.glitch.me/nerds_consignment_index/count.svg'
+            counter_img['alt'] = 'Visitor Count'
+            counter_img['style'] = 'margin-top: 15px; display: block; margin-left: auto; margin-right: auto;'
+            footer.append(counter_img)
+
 def main():
     check_and_process_images()
 
@@ -154,6 +166,7 @@ def main():
             a_tag.string = 'justindbarnhill@gmail.com or nerdyfeathers@gmail.com'
 
     ensure_styles_and_scripts(soup)
+    ensure_page_counter(soup)
 
     content_div = soup.find('div', class_='content')
     if not content_div:
